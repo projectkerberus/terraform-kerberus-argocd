@@ -1,0 +1,16 @@
+server:
+  extraArgs:
+    - --insecure
+
+  service:
+    type: LoadBalancer 
+ 
+  config:
+    accounts.kerberus-dashboard: apiKey
+    accounts.kerberus-dashboard.enabled: "true"
+
+  rbacConfig:
+    policy.default: role:admin
+
+  image: 
+    tag: latest
