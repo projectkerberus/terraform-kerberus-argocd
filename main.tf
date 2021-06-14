@@ -13,16 +13,8 @@ resource "helm_release" "argocd" {
   values     = var.argocd_values_path != "" ? [file(var.argocd_values_path)] : []
 }
 
-resource "null_resource" "arcocg_wait" {
-  depends_on = [helm_release.argocd]
-
-  provisioner "local-exec" {
-    command = format("kubectl --kubeconfig=%s rollout status deploy/argocd-server -n %s", abspath(var.path_kubeconfig), var.argocd_namespace)
-  }
-}
-
 data "kubernetes_secret" "retreive_argocd_password" {
-  depends_on = [null_resource.arcocg_wait]
+  depends_on = [helm_release.argocd]
 
   metadata {
     name      = "argocd-initial-admin-secret"
@@ -31,7 +23,6 @@ data "kubernetes_secret" "retreive_argocd_password" {
 }
 
 data "external" "generate_argocd_token" {
-  depends_on = [null_resource.arcocg_wait]
 
   program = ["/bin/bash", join("/", [path.module, "files", "generate-token.sh"])]
 
