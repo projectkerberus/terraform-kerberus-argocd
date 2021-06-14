@@ -1,8 +1,8 @@
-# Full round Example
+# Full Round Example
 
-A  full example with the token generation. 
+A full example that deploys ArgoCD and generates a token for the service account. 
 
->  It's required a load balancer.  
+>  WARNING: In the `values.yml` we define a load balancer to expose an external IP.
 
 ## Usage
 
@@ -25,10 +25,10 @@ Error: failed to execute "/bin/bash":   % Total    % Received % Xferd  Average S
 Fail to retreive bearer token. Please check if argocd.io is a valid endpoint
 ```
 
-4. You need to retrieve the load balancer external IP: 
+4. You need to retrieve the load balancer external IP, you can see it with the following command: 
 
 ```shell
-KUBECONFIG=./config kubectl get services -n argo-sytem
+kubectl --kubeconfig=./config get services  -A | grep argocd-server
 ```
 
 5. Create a `terrafom.tfvars` with the following content:

@@ -1,6 +1,8 @@
 # Terraform Kerberus Dashboard
 
-Terraform module which deploy ArgoCD on your Kubernates.
+Terraform module which deploys ArgoCD on your Kubernetes cluster. 
+
+> This module is part of the [Kerberus Platform](https://github.com/projectkerberus/kerberus-platform)  
 
 ## Usage
 
@@ -23,10 +25,10 @@ module "kerberus_dashboard" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14.08 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
 | <a name="requirement_external"></a> [external](#requirement\_external) | 2.1.0 |
-| <a name="requirement_helm"></a> [helm](#requirement\_helm) | 2.0.3 |
-| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | 2.0.3 |
+| <a name="requirement_helm"></a> [helm](#requirement\_helm) | 2.2.0 |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | 2.3.2 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | 3.1.0 |
 | <a name="requirement_kubectl"></a> [kubectl](#requirement\_kubectl) | n/a |
 | <a name="requirement_jq"></a> [jq](#requirement\_jq) | n/a |
@@ -37,9 +39,8 @@ module "kerberus_dashboard" {
 | Name | Version |
 |------|---------|
 | <a name="provider_external"></a> [external](#provider\_external) | 2.1.0 |
-| <a name="provider_helm"></a> [helm](#provider\_helm) | 2.0.3 |
-| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.0.3 |
-| <a name="provider_null"></a> [null](#provider\_null) | 3.1.0 |
+| <a name="provider_helm"></a> [helm](#provider\_helm) | 2.2.0 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.3.2 |
 
 ## Modules
 
@@ -49,11 +50,10 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [helm_release.argocd](https://registry.terraform.io/providers/hashicorp/helm/2.0.3/docs/resources/release) | resource |
-| [kubernetes_namespace.argo_namespace](https://registry.terraform.io/providers/hashicorp/kubernetes/2.0.3/docs/resources/namespace) | resource |
-| [null_resource.arcocg_wait](https://registry.terraform.io/providers/hashicorp/null/3.1.0/docs/resources/resource) | resource |
+| [helm_release.argocd](https://registry.terraform.io/providers/hashicorp/helm/2.2.0/docs/resources/release) | resource |
+| [kubernetes_namespace.argo_namespace](https://registry.terraform.io/providers/hashicorp/kubernetes/2.3.2/docs/resources/namespace) | resource |
 | [external_external.generate_argocd_token](https://registry.terraform.io/providers/hashicorp/external/2.1.0/docs/data-sources/external) | data source |
-| [kubernetes_secret.retreive_argocd_password](https://registry.terraform.io/providers/hashicorp/kubernetes/2.0.3/docs/data-sources/secret) | data source |
+| [kubernetes_secret.retreive_argocd_password](https://registry.terraform.io/providers/hashicorp/kubernetes/2.3.2/docs/data-sources/secret) | data source |
 
 ## Inputs
 
@@ -77,7 +77,7 @@ No modules.
 
 ## Authors
 
-Module is maintained by [Kiratech](https://www.kiratech.it/) with help from [these awesome contributors](https://github.com/projectkerberus/terraform-kerberus-dashboard/graphs/contributors).
+The module is maintained by [Kiratech](https://www.kiratech.it/) with help from [these awesome contributors](https://github.com/projectkerberus/terraform-kerberus-dashboard/graphs/contributors).
 
 ## License
 

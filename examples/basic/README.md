@@ -1,6 +1,6 @@
 # Basic Example
 
-A very simple and basic example with fake data. 
+A very simple example with fake data. 
 
 ## Usage
 
