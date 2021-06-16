@@ -11,6 +11,22 @@ resource "helm_release" "argocd" {
   chart      = var.argocd_chart
   version    = var.argocd_chart_version
   values     = var.argocd_values_path != "" ? [file(var.argocd_values_path)] : []
+
+  set {
+    name  = format("server.config.accounts\\.%s", var.argocd_kerberus_service_account)
+    value = "apiKey"
+  }
+
+  set {
+    name  = format("server.config.accounts\\.%s\\.enabled", var.argocd_kerberus_service_account)
+    value = "true"
+    type  = "string"
+  }
+
+  set {
+    name  = "server.rbacConfig.policy\\.default"
+    value = "role:admin"
+  }
 }
 
 data "kubernetes_secret" "retreive_argocd_password" {
