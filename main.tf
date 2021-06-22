@@ -25,7 +25,12 @@ resource "helm_release" "argocd" {
 
   set {
     name  = "server.rbacConfig.policy\\.default"
-    value = "role:admin"
+    value = var.argocd_rbacConfig_policy_default
+  }
+
+  set {
+    name  = "server.extraArgs"
+    value = format("{%s}", join(",", var.argocd_server_extra_args))
   }
 }
 

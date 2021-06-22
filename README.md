@@ -63,7 +63,9 @@ No modules.
 | <a name="input_argocd_chart_version"></a> [argocd\_chart\_version](#input\_argocd\_chart\_version) | Specify the exact ArgoCD chart version to install. If this is not specified, the latest version is installed. | `string` | `null` | no |
 | <a name="input_argocd_kerberus_service_account"></a> [argocd\_kerberus\_service\_account](#input\_argocd\_kerberus\_service\_account) | The name of the ArgoCD service account for kerberus. | `string` | `"kerberus-dashboard"` | no |
 | <a name="input_argocd_namespace"></a> [argocd\_namespace](#input\_argocd\_namespace) | The name of ArgoCD namespace for the Kerberus dashboard. | `string` | `"argo-system"` | no |
+| <a name="input_argocd_rbacConfig_policy_default"></a> [argocd\_rbacConfig\_policy\_default](#input\_argocd\_rbacConfig\_policy\_default) | Argo CD pre-defined roles, it can be role:readonly or role:admin. For more information see: https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/rbac.md | `string` | `"role:admin"` | no |
 | <a name="input_argocd_repository"></a> [argocd\_repository](#input\_argocd\_repository) | Repository URL where to locate the ArgoCD chart | `string` | `"https://argoproj.github.io/argo-helm"` | no |
+| <a name="input_argocd_server_extra_args"></a> [argocd\_server\_extra\_args](#input\_argocd\_server\_extra\_args) | ArgoCD server extra args | `list(string)` | <pre>[<br>  "--insecure"<br>]</pre> | no |
 | <a name="input_argocd_url"></a> [argocd\_url](#input\_argocd\_url) | fqdn for ArgoCD gui | `string` | n/a | yes |
 | <a name="input_argocd_values_path"></a> [argocd\_values\_path](#input\_argocd\_values\_path) | ArgoCD helm chart values.yaml path. | `string` | `""` | no |
 | <a name="input_path_kubeconfig"></a> [path\_kubeconfig](#input\_path\_kubeconfig) | path kubeconfig | `string` | n/a | yes |
